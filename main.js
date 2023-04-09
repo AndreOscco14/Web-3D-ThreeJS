@@ -38,3 +38,5 @@ function animate(){
 }
 
 animate();
+
+// Libreria ThreeJS y bac en NextJS (PRACTICARLo)
