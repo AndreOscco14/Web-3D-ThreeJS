@@ -35,13 +35,15 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight)
 
 // Ayuda en la pantalla
-const lighHelper = new THREE.PointLightHelper(pointLight)
-const gridHelper = new THREE.GridHelper(200,80);
-scene.add(lighHelper,  gridHelper)
-//* ======================== FIN LUCES ===============================
+// const lighHelper = new THREE.PointLightHelper(pointLight)
+// const gridHelper = new THREE.GridHelper(200,80);
+// scene.add(lighHelper,  gridHelper)
 
 // Controles para mover la orbitra y figura en imagen
 const controls = new OrbitControls(camera, renderer.domElement);
+
+//* ======================== FIN LUCES ===============================
+
 
 
 //------------- Figura Star
