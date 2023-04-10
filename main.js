@@ -21,10 +21,21 @@ const material = new THREE.MeshStandardMaterial({color: 0xFF6347 })
 const torus = new THREE.Mesh(geometry, material)
 
 scene.add(torus)
+//* ======================== LUCES ===============================
 const pointLight = new THREE.PointLight(0xffffff)
-pointLight.position.set(20,20,20)
+pointLight.position.set(5,5,5)
 
-scene.add(pointLight)
+
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(pointLight, ambientLight)
+
+// Ayuda en la pantalla
+const lighHelper = new THREE.PointLightHelper(pointLight)
+const gridHelper = new THREE.GridHelper(200,50);
+scene.add(lighHelper,  gridHelper)
+
+//* ======================== FIN LUCES ===============================
+
 
 function animate(){
   requestAnimationFrame(animate);
