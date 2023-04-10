@@ -43,7 +43,8 @@ scene.add(lighHelper,  gridHelper)
 // Controles para mover la orbitra y figura en imagen
 const controls = new OrbitControls(camera, renderer.domElement);
 
-// Figura Star
+
+//------------- Figura Star
 function addStar(){
   const geometry = new THREE.SphereGeometry(0.25,24,24);
   const material = new THREE.MeshStandardMaterial({color: 0xffffff})
@@ -56,6 +57,33 @@ function addStar(){
 }
 Array(200).fill().forEach(addStar)
 
+const spaceTexture = new THREE.TextureLoader().load('space.jpg')
+scene.background = spaceTexture;
+
+//------------- Avatar Imagen Dre
+const dreTexture = new THREE.TextureLoader().load('1.png') 
+
+const dre = new THREE.Mesh(
+  new THREE.BoxGeometry(3,6,3),
+  new THREE.MeshBasicMaterial({ map: dreTexture})
+)
+scene.add(dre)
+
+// ------------- Moon
+const moonTexture = new THREE.TextureLoader().load('moon.jpg');
+const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3,32,32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture
+  })
+);
+
+scene.add(moon)
+
+// ------------- Animacion del aro 
 function animate(){
   requestAnimationFrame(animate);
   torus.rotation.x += 0.01;
